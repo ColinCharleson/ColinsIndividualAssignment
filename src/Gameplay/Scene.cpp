@@ -6,6 +6,7 @@
 
 #include "Utils/FileHelpers.h"
 #include "Utils/GlmBulletConversions.h"
+#include "Gameplay/InputEngine.h"
 
 #include "Gameplay/Physics/RigidBody.h"
 #include "Gameplay/Physics/TriggerVolume.h"
@@ -16,6 +17,8 @@
 #include "Graphics/Textures/TextureCube.h"
 #include "Graphics/VertexArrayObject.h"
 #include "Application/Application.h"
+#include "Gameplay/InputEngine.h"
+#include "Gameplay/Light.h"
 
 namespace Gameplay {
 	Scene::Scene() :
@@ -189,9 +192,50 @@ namespace Gameplay {
 		}
 	}
 
+
 	void Scene::Update(float dt) {
 		_FlushDeleteQueue();
 		if (IsPlaying) {
+
+			if (InputEngine::IsKeyDown(GLFW_KEY_1))
+			{
+				SetAmbientLight(glm::vec3(0.0f));
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_2))
+			{
+				SetAmbientLight(glm::vec3(1.0f));
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_3))
+			{	
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_4))
+			{
+				SetAmbientLight(glm::vec3(1.0f));
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_5))
+			{
+				SetAmbientLight(glm::vec3(1.0f));
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_6))
+			{
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_7))
+			{
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_8))
+			{
+				SetColorLUT(lut);
+			}
+			if (InputEngine::IsKeyDown(GLFW_KEY_9))
+			{
+				SetColorLUT(lut2);
+			} 
+			if (InputEngine::IsKeyDown(GLFW_KEY_0))
+			{
+				SetColorLUT(lut3);
+			}
+
+
 			for (auto& obj : _objects) {
 				obj->Update(dt);
 			}

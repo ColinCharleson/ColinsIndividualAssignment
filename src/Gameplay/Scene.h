@@ -52,6 +52,9 @@ namespace Gameplay {
 		// Whether the application is in "play mode", lets us leverage editors!
 		bool                       IsPlaying;
 
+		Texture3D::Sptr lut = ResourceManager::CreateAsset<Texture3D>("luts/warming.CUBE");
+		Texture3D::Sptr lut2 = ResourceManager::CreateAsset<Texture3D>("luts/cooling.CUBE");
+		Texture3D::Sptr lut3 = ResourceManager::CreateAsset<Texture3D>("luts/custom.CUBE");
 
 		Scene();
 		~Scene();
